@@ -1,0 +1,49 @@
+---
+- name: Runbook that will update AdGuard configuration and restart.
+  hosts: all
+  any_errors_fatal: true
+  become: true
+  gather_facts: true
+
+  handlers:
+    - name: Restart AdGuard
+      command: "docker restart {{ item }}"
+      with_items:
+        - "{{ adguard_name }}"
+
+  tasks:
+    - name: Read current AdGuard configuration
+      ansible.builtin.slurp:
+        src: "{{ adguard_data_dir }}/{{ adguard_name }}/conf/AdGuardHome.yaml"
+      register: current_yaml
+
+    - name: Convert encoded AdGuard configuration
+      ansible.builtin.set_fact:
+        current_config: "{{ (current_yaml.content | b64decode | from_yaml) }}"
+
+    - name: Modify AdGuard DNS rewrites
+      ansible.builtin.set_fact:
+        modified_rewrites:
+          dns: 
+            rewrites: "{{ adguard_dns_rewrites | sort(attribute='domain') }}"
+
+    - name: Update AdGuard dns rewrites
+      ansible.builtin.set_fact:
+        modified_config: "{{ current_config | combine(modified_rewrites, recursive=true) }}"
+      with_dict: "{{ current_config }}"
+      when: item.key == 'dns'
+
+    - name: Update AdGuard is configured
+      ansible.builtin.copy:
+        content: "{{ modified_config | to_nice_yaml }}"
+        dest: "{{ adguard_data_dir }}/{{ adguard_name }}/conf/AdGuardHome.yaml"
+        owner: root
+        group: docker
+        mode: "0644"
+      notify: Restart AdGuard
+      when: current_config != modified_config
+
+  vars:
+    adguard_data_dir: "{{ hostvars[inventory_hostname].adguard_data_dir | default('/opt') }}"
+    adguard_name: "{{ hostvars[inventory_hostname].adguard_name | default('adguard_' + ansible_hostname) }}"
+    adguard_dns_rewrites: "{{ hostvars[inventory_hostname].adguard_dns_rewrites | default([]) }}"

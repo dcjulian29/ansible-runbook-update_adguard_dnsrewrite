@@ -1,0 +1,25 @@
+---
+authors: ["Julian Easterling <julian@julianscorner.com>"]
+build_ignore:
+  - .devcontainer
+  - README.md
+  - build.cmd
+  - .gitignore
+  - .vscode
+  - .github
+  - .ansible-lint
+  - .gitattributes
+  - .yamllint
+  - .editorconfig
+description: Runbook that will update AdGuard DNS rewrite configuration and restart.
+homepage: https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite
+issues: https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/issues
+license: ["Apache-2.0"]
+name: update_adguard_dnsrewrite
+namespace: dcjulian29
+readme: https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/blob/main/README.md
+repository: https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite
+tags:
+  - update_adguard_dnsrewrite
+  - dcjulian29
+version: 0.9.0
