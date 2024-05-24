@@ -1,6 +1,8 @@
 # Ansible Runbook: update_adguard_dnsrewrite
 
-[![Build](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/actions/workflows/build.yml/badge.svg)](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/actions/workflows/build.yml) [![Release](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/actions/workflows/release.yml/badge.svg)](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/actions/workflows/release.yml) [![GitHub Release](https://img.shields.io/github/v/release/dcjulian29/ansible-runbook-update_adguard_dnsrewrite)](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/releases) [![GitHub Issues](https://img.shields.io/github/issues-raw/dcjulian29/ansible-runbook-update_adguard_dnsrewrite.svg)](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/issues)
+[![GitHub Issues](https://img.shields.io/github/issues-raw/dcjulian29/ansible-runbook-update_adguard_dnsrewrite.svg)](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/issues)
+[![Version](https://img.shields.io/github/v/release/dcjulian29/ansible-runbook-update_adguard_dnsrewrite)](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/releases)
+[![Build](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/actions/workflows/build.yml/badge.svg)](https://github.com/dcjulian29/ansible-runbook-update_adguard_dnsrewrite/actions/workflows/build.yml)
 
 This is an Ansible runbook that will update AdGuard DNS rewrite configuration and restart.
 
