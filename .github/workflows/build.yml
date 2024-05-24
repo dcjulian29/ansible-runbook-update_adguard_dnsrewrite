@@ -1,4 +1,4 @@
-name: Update_AdGuard_DNSRewrites
+name: Workflow CI
 
 'on':
   push:
