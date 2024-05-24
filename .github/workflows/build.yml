@@ -5,6 +5,8 @@ name: Workflow CI
 
   pull_request:
 
+  workflow_dispatch:
+
 jobs:
   build:
     name: Lint Runbook
