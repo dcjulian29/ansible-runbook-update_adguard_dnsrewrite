@@ -24,7 +24,7 @@
     - name: Modify AdGuard DNS rewrites
       ansible.builtin.set_fact:
         modified_rewrites:
-          dns: 
+          dns:
             rewrites: "{{ adguard_dns_rewrites | sort(attribute='domain') }}"
 
     - name: Update AdGuard dns rewrites
