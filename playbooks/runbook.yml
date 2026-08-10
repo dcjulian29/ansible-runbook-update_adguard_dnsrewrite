@@ -7,9 +7,8 @@
 
   handlers:
     - name: Restart AdGuard
-      command: "docker restart {{ item }}"
-      with_items:
-        - "{{ adguard_name }}"
+      ansible.builtin.command: "docker restart {{ adguard_name }}"
+      changed_when: true
 
   tasks:
     - name: Read current AdGuard configuration
