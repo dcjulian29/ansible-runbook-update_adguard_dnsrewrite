@@ -45,5 +45,5 @@
 
   vars:
     adguard_data_dir: "{{ hostvars[inventory_hostname].adguard_data_dir | default('/opt') }}"
-    adguard_name: "{{ hostvars[inventory_hostname].adguard_name | default('adguard_' + ansible_hostname) }}"
+    adguard_name: "{{ hostvars[inventory_hostname].adguard_name | default('adguard_' + ansible_facts['hostname']) }}"
     adguard_dns_rewrites: "{{ hostvars[inventory_hostname].adguard_dns_rewrites | default([]) }}"
